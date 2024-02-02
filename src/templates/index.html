@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Browser System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest/dist/hls.min.js"></script>
+</head>
+<body>
+    <div class = "container">
+
+        <div class = "searchbar">
+            <input type="text" placeholder="Search..">
+        </div>
+        <div class = "showcase">
+            <div class = "showcase-container">
+                <div class="video-container">
+                    <div id="iframe_blocker" class="iframe-blocker">
+                        <h1 style="text-align: center; padding: 121.6px">Video Browser System<br>Select Video to View</h1>
+                    </div>
+
+                    <iframe id="iframe" style="display: none; position: absolute;" width="640px" height="360px" frameborder="0" scrolling="no" src="static/video_player.html"></iframe>
+                </div>
+                <div class="related-shots"></div>
+            </div>
+        </div>
+        <div class="browser">
+            <img class="img-btn" width="300" height="225" src="static/thumbnail/suisex.png" onclick="playVideo('suisex.m3u8')" >
+            <img class="img-btn" width="300" height="225" src="static/thumbnail/patootie.png" onclick="playVideo('patootie.m3u8')" >
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
