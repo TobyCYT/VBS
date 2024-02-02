@@ -1,5 +1,5 @@
-sudo docker kill VSB
-sudo docker rm VSB
-sudo docker rmi VSB
-sudo docker build -t VSB .
-sudo docker run -d -p 6969:8000 --name VSB VSB
+sudo docker kill vsb
+sudo docker rm vsb
+sudo docker rmi vsb
+sudo docker build -t vsb .
+sudo docker run -d -p 6969:8000 --name vsb vsb
