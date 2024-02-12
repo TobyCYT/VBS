@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="shortcut icon" href="#" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest/dist/hls.min.js"></script>
@@ -14,7 +15,28 @@
     <div class = "container">
 
         <div class = "searchbar">
-            <input type="text" placeholder="Search..">
+            <div id = "feature-selector">
+                <label class="control control-checkbox">
+                    CLIP
+                    <input type="checkbox" />
+                    <div class="control_indicator"></div>
+                </label>
+                <label class="control control-checkbox">
+                    BLIP
+                    <input type="checkbox" />
+                    <div class="control_indicator"></div>
+                </label>
+                <label class="control control-checkbox">
+                    ITV
+                    <input type="checkbox" />
+                    <div class="control_indicator"></div>
+                </label>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <i class="fas fa-search search-icon"></i>
+                <i class="fas fa-times clear-icon"></i>
+            </div>
         </div>
         <div class = "showcase">
             <div class = "showcase-container">

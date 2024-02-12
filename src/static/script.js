@@ -1,5 +1,21 @@
 // scripts.js
 
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('.search-input');
+    const searchIcon = document.querySelector('.search-icon');
+    const clearIcon = document.querySelector('.clear-icon');
+
+    searchInput.addEventListener('input', function () {
+        clearIcon.style.display = this.value.trim() !== '' ? 'block' : 'none';
+    });
+
+    clearIcon.addEventListener('click', function () {
+        searchInput.value = '';
+        clearIcon.style.display = 'none';
+    });
+});
+
+
 async function playVideo(vidID, seekTime = 0) {
     var iframe_blocker = document.getElementById('iframe_blocker');
 

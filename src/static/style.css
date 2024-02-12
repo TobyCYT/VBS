@@ -12,7 +12,14 @@ body, html {
 
 .searchbar {
     flex: 0 0 40px;
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
     background-color: #555555;
+}
+
+#feature-selector {
+    display: flex;
 }
 
 .showcase {
@@ -70,4 +77,177 @@ body, html {
     width: 640px;
     height: 360px;
     background: #FFFFFF;
+}
+
+.search-container {
+    position: relative;
+    width: 500px;
+    margin: 5px;
+}
+
+.search-input {
+    width: 85%;
+    font-size: 18px;
+    padding: 5px 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    padding-right: 100px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.fa-times.clear-icon {
+    position: absolute;
+    display: none;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+input[type="checkbox"] + label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000; /* Set border color */
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer;
+}
+
+/* Style for checked state */
+input[type="checkbox"]:checked + label {
+    background-color: #000; /* Set background color */
+    border-color: #000; /* Set border color for checked state */
+}
+
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 20px;
+    padding-top: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+    border-radius: 15px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #119900;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #116600;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: -1.3rem;
+    margin-top: -1.3rem;
+    background: #119900;
+    border-radius: 3rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
+}
+
+@keyframes s-ripple {
+    0% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes s-ripple-dup {
+   0% {
+       transform: scale(0);
+    }
+   30% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.control-checkbox input + .control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+    animation-name: s-ripple-dup;
 }
