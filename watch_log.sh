@@ -1,1 +1,1 @@
-sudo docker logs vbw --follow
+sudo docker logs vsb --follow

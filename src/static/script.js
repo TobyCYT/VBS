@@ -1,6 +1,6 @@
 // scripts.js
 
-async function playVideo(vidID, seekTime = 30) {
+async function playVideo(vidID, seekTime = 0) {
     var iframe_blocker = document.getElementById('iframe_blocker');
 
     var iframe = document.getElementById('iframe');
@@ -15,43 +15,16 @@ async function playVideo(vidID, seekTime = 30) {
     // Now you can reference elements inside the iframe
     var videoPlayer = iframeDocument.getElementById('video');
 
-    console.log("Initializing")
-    var hls = new Hls(); // Initialize hls.js
-    console.log("Initialized")
-    if (Hls.isSupported()) {
-        console.log("HLS supported");
-        hls.loadSource('/hls/'+vidID); // Replace with your master playlist URL
-        hls.attachMedia(videoPlayer);
-        console.log("Attached media");
-        
-        videoPlayer.addEventListener("loadeddata", () => {
-            console.log("Data Loaded")
-            iframe_blocker.style.display = "none";
-            iframe.style.display = "block";
-            videoPlayer.currentTime = seekTime;
-            videoPlayer.play();
-            videoPlayer.muted = false;
-        })
+    // Add source to media player
+    videoPlayer.src = "videos/"+vidID;
+    videoPlayer.currentTime = seekTime;
 
-        // hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        //     // Wait 2 seconds for the video to load
-        //     iframe_blocker.style.display = "none";
-        //     iframe.style.display = "block";
-        //     videoPlayer.currentTime = seekTime;
-        //     videoPlayer.play();
-        //     videoPlayer.muted = false;
-        // });
-    // } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
-    //     console.log("Not supported");
-    //     videoPlayer.src = '/hls/'+vidID; // Replace with your master playlist URL
-    //     videoPlayer.addEventListener('loadedmetadata', function () {
-    //         iframe_blocker.style.display = "none";
-    //         iframe.style.display = "block";
-    //         videoPlayer.play();
-    //         videoPlayer.muted = false;
-    //     });
-    } else {
-        console.log("Not supported");
-    }
-
+    videoPlayer.addEventListener("loadeddata", () => {
+        console.log("Data Loaded")
+        iframe_blocker.style.display = "none";
+        iframe.style.display = "block";
+        videoPlayer.play();
+        videoPlayer.muted = false;
+    })
+    
 }
