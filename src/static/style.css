@@ -206,10 +206,10 @@ input[type="checkbox"]:checked + label {
     position: absolute;
     left: 0;
     top: 0;
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-left: -1.3rem;
-    margin-top: -1.3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: -0.65rem;
+    margin-top: -0.65rem;
     background: #119900;
     border-radius: 3rem;
     opacity: 0.6;
